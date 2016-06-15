@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+#Script facilidador, aceito melhorias =)
+
+#Testar se foi informado parametro para usar no nome da imagem;
+if [ $# -lt 1 ]; then
+	printf "\nPor favor informe como parametro o nome da nova imagem.\nEx: ./script nomeimagem\n" 
+	exit ;
+fi
+
+#dockerfile=`find / -iname 'dockerfile' -atime -1 ` ;
+
+#Cria imagem usando o Dockerfile localizado:
+#`docker build -t $nome_image Dockerfile`
+ 
+#Localiza imagem criada e armazena na variavel:
+#image=`docker images |grep -i $nome_image |awk '{print $1}'`
+
+#Cria o container apartir da image localizada:
+#`docker run -id -p 3000:3000 --name containerntop  $image`
+
+
+#Fazer upload de image personalizada:
+#docker tag $image 01062016/cs-reinaldo-pinto
+#docker push 01062016/cs-reinaldo-pinto
+
+
+sudo docker run -d --rm -p 80:80 --name meucontainer -v "$PWD":/usr/local/apache2/htdocs/ httpd:latest
+
+
+
+
+
+
+
+
